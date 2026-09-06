@@ -202,3 +202,51 @@ export async function saveEncuestaCompletaToDatabase(data: any) {
 
   return result;
 }
+
+export async function saveEncuestaCoachingToDatabase(data: any) {
+  if (!supabase) {
+    throw new Error("Supabase no configurado (falta SUPABASE_SERVICE_ROLE_KEY)");
+  }
+  const { data: result, error } = await supabase.from("encuestas_coaching").insert([
+    {
+      nombre: data.nombre,
+      email: data.email,
+      whatsapp: data.whatsapp,
+      rol_actual: data.rolActual,
+      empresa: data.empresa || "",
+      ciudad: data.ciudad,
+      quien_paga: data.quienPaga,
+      personas_a_cargo: data.personasACargo,
+      nivel_jerarquico: data.nivelJerarquico || "",
+      modalidad_preferida: data.modalidadPreferida || "",
+      hay_presupuesto: data.hayPresupuesto || "",
+      quien_mas_deberia_estar: data.quienMasDeberiaEstar || "",
+      situacion_laboral: data.situacionLaboral || "",
+      proceso_previo: data.procesoPrevio || "",
+      plazo_en_mente: data.plazoEnMente || "",
+      desafio_principal: data.desafioPrincipal,
+      que_hiciste_hasta_ahora: data.queHicisteHastaAhora,
+      por_que_no_funciono: data.porQueNoFunciono,
+      impacto_real: data.impactoReal,
+      desde_cuando: data.desdeCuando,
+      causas_de_fondo: data.causasDeFondo,
+      consecuencias_no_resolver: data.consecuenciasNoResolver,
+      solucion_optima: data.solucionOptima,
+      impactos_tangibles: data.impactosTangibles,
+      impacto_personal: data.impactoPersonal,
+      condiciones_de_piso: data.condicionesDePiso || "",
+      futuro_si_no_resuelve: data.futuroSiNoResuelve,
+      que_esperas_del_proceso: data.queEsperasDelProceso,
+      comunicacion_preferida: data.comunicacionPreferida,
+      observaciones: data.observaciones || "",
+      created_at: new Date().toISOString(),
+    },
+  ]);
+
+  if (error) {
+    console.error("Error saving encuesta coaching to Supabase:", error);
+    throw error;
+  }
+
+  return result;
+}

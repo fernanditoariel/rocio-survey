@@ -421,3 +421,118 @@ export async function sendEncuestaCompletaEmailToFernando(data: any) {
     throw error;
   }
 }
+
+export async function sendEncuestaCoachingEmailToFernando(data: any) {
+  try {
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY not configured");
+      return;
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const row = (label: string, value: any) =>
+      value ? `<p><strong>${label}:</strong> ${String(value).replace(/\n/g, "<br>")}</p>` : "";
+
+    const esCorporativo = data.quienPaga === "empresa";
+
+    const emailContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; color: #333; }
+    .container { max-width: 640px; margin: 0 auto; padding: 20px; }
+    .header { background: #059669; color: white; padding: 20px; border-radius: 8px 8px 0 0; }
+    .section { background: #f8fafc; padding: 15px; margin: 10px 0; border-left: 4px solid #059669; }
+    .section-title { font-weight: bold; color: #059669; margin-bottom: 8px; }
+    .footer { text-align: center; color: #999; margin-top: 30px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🧭 Nueva Encuesta de Coaching</h1>
+      <p>${data.nombre} completó la encuesta de descubrimiento de coaching ejecutivo</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">👤 Datos Básicos</div>
+      ${row("Nombre", data.nombre)}
+      ${row("Email", data.email)}
+      ${row("WhatsApp", data.whatsapp)}
+      ${row("Rol actual", data.rolActual)}
+      ${row("Empresa", data.empresa)}
+      ${row("Ciudad", data.ciudad)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">🏢 Contexto</div>
+      ${row("¿Quién paga?", esCorporativo ? "La empresa" : "El propio prospecto")}
+      ${row("Personas a cargo", data.personasACargo)}
+      ${esCorporativo ? row("Nivel jerárquico", data.nivelJerarquico) : ""}
+      ${esCorporativo ? row("Modalidad preferida", data.modalidadPreferida) : ""}
+      ${esCorporativo ? row("¿Hay presupuesto asignado?", data.hayPresupuesto) : ""}
+      ${esCorporativo ? row("Quién más debería estar", data.quienMasDeberiaEstar) : ""}
+      ${!esCorporativo ? row("Situación laboral", data.situacionLaboral) : ""}
+      ${!esCorporativo ? row("¿Proceso de coaching previo?", data.procesoPrevio) : ""}
+      ${!esCorporativo ? row("Plazo en mente", data.plazoEnMente) : ""}
+    </div>
+
+    <div class="section">
+      <div class="section-title">📍 Situación (X)</div>
+      ${row("Desafío principal", data.desafioPrincipal)}
+      ${row("Qué hizo hasta ahora", data.queHicisteHastaAhora)}
+      ${row("Por qué no funcionó", data.porQueNoFunciono)}
+      ${row("Impacto real", data.impactoReal)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">🔍 Conciencia del Problema</div>
+      ${row("Desde cuándo", data.desdeCuando)}
+      ${row("Causas de fondo", data.causasDeFondo)}
+      ${row("Consecuencias de no resolverlo (Y)", data.consecuenciasNoResolver)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎯 Conciencia de la Solución (Z)</div>
+      ${row("Solución óptima", data.solucionOptima)}
+      ${row("Impactos tangibles", data.impactosTangibles)}
+      ${row("Impacto personal", data.impactoPersonal)}
+      ${row("Condiciones de piso", data.condicionesDePiso)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">⏳ Consecuencia de No Resolverlo</div>
+      ${row("Futuro si esto sigue igual", data.futuroSiNoResuelve)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">✅ Cierre</div>
+      ${row("Qué espera del proceso", data.queEsperasDelProceso)}
+      ${row("Comunicación preferida", data.comunicacionPreferida)}
+      ${row("Observaciones", data.observaciones)}
+    </div>
+
+    <div class="footer">
+      <p>Esta encuesta fue completada el ${new Date().toLocaleString("es-AR")}</p>
+    </div>
+  </div>
+</body>
+</html>
+    `;
+
+    const result = await resend.emails.send({
+      from: "Encuesta Coaching <onboarding@resend.dev>",
+      to: process.env.ENCUESTA_COACHING_EMAIL_TO || "agenciawebhispana@gmail.com",
+      subject: `🧭 Nueva Encuesta de Coaching: ${data.nombre}`,
+      html: emailContent,
+    });
+
+    console.log("Encuesta coaching email sent successfully:", result);
+    return result;
+  } catch (error) {
+    console.error("Error sending encuesta coaching email:", error);
+    throw error;
+  }
+}
