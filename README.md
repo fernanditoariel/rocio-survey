@@ -28,6 +28,7 @@ Abre http://localhost:3000
 ✅ Página de éxito con recomendaciones para la reunión presencial
 ✅ API endpoint para procesamiento de datos
 ✅ Deploy listo para Vercel
+✅ Encuesta Completa unificada (secciones 1-4), dashboard, propuesta y admin — deploy vía Git a Vercel
 
 ## Configuración Requerida
 
