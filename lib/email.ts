@@ -647,6 +647,353 @@ export async function sendEncuesta100KEmailToFernando(data: any) {
       ${row("Observaciones", data.observaciones)}
     </div>
 
+    <div class="section">
+      <div class="section-title">Tab 6 — Mi Estrategia de Contenido</div>
+      ${row("Pilar #1 (PROBLEMA) — Nombre del pilar", data.t6_pilar1Nombre)}
+      ${row("Pilar #1 (PROBLEMA) — Líneas narrativas de este pilar", data.t6_pilar1Lineas)}
+      ${row("Pilar #1 (PROBLEMA) — Palabras clave para investigación", data.t6_pilar1Palabras)}
+      ${row("Pilar #2 (SOLUCIÓN) — Nombre del pilar", data.t6_pilar2Nombre)}
+      ${row("Pilar #2 (SOLUCIÓN) — Líneas narrativas de este pilar", data.t6_pilar2Lineas)}
+      ${row("Pilar #2 (SOLUCIÓN) — Palabras clave para investigación", data.t6_pilar2Palabras)}
+      ${row("Pilar #3 (RESULTADO) — Nombre del pilar", data.t6_pilar3Nombre)}
+      ${row("Pilar #3 (RESULTADO) — Líneas narrativas de este pilar", data.t6_pilar3Lineas)}
+      ${row("Pilar #3 (RESULTADO) — Palabras clave para investigación", data.t6_pilar3Palabras)}
+      ${row("Palabra clave #1 (volumen/relevancia y pilar al que pertenece)", data.t6_keyword1)}
+      ${row("Palabra clave #2 (volumen/relevancia y pilar al que pertenece)", data.t6_keyword2)}
+      ${row("Palabra clave #3 (volumen/relevancia y pilar al que pertenece)", data.t6_keyword3)}
+      ${row("Competidores del rubro que analicé", data.t6_competidoresAnalizados)}
+      ${row("Ideas que más se repiten en mi nicho", data.t6_ideasRepiten)}
+      ${row("Formatos que más se repiten", data.t6_formatosRepiten)}
+      ${row("Nivel 1 — Consciencia Baja (público frío, recién descubre su problema): qué formatos o ideas creás", data.t6_nivel1Formatos)}
+      ${row("Nivel 2 — Consciencia Media (ya conoce su problema, compara opciones): qué formatos o ideas creás", data.t6_nivel2Formatos)}
+      ${row("Nivel 3 — Consciencia Avanzada (ya probó soluciones, no le funcionaron): qué formatos o ideas creás", data.t6_nivel3Formatos)}
+      ${row("Nivel 4 — Consciencia Total (listo para comprar): qué formatos o ideas creás", data.t6_nivel4Formatos)}
+      ${row("Formato priorizado #1 (y a qué nivel de consciencia corresponde)", data.t6_formatoPriorizado1)}
+      ${row("Formato priorizado #2 (y a qué nivel de consciencia corresponde)", data.t6_formatoPriorizado2)}
+      ${row("Formato priorizado #3 (y a qué nivel de consciencia corresponde)", data.t6_formatoPriorizado3)}
+      ${row("Idea #1", data.t6_idea1)}
+      ${row("Idea #2", data.t6_idea2)}
+      ${row("Idea #3", data.t6_idea3)}
+      ${row("Idea #4", data.t6_idea4)}
+      ${row("Idea #5", data.t6_idea5)}
+      ${row("Idea #6", data.t6_idea6)}
+      ${row("Clasificación #1 (Idea → Propósito → Formato)", data.t6_clasifica1)}
+      ${row("Clasificación #2 (Idea → Propósito → Formato)", data.t6_clasifica2)}
+      ${row("Clasificación #3 (Idea → Propósito → Formato)", data.t6_clasifica3)}
+      ${row("Clasificación #4 (Idea → Propósito → Formato)", data.t6_clasifica4)}
+      ${row("Clasificación #5 (Idea → Propósito → Formato)", data.t6_clasifica5)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 7 — Banco de Guiones</div>
+      ${row("Guion #1 (idea, formato, gancho textual, gancho visual, CTA)", data.t7_indice1)}
+      ${row("Guion #2 (idea, formato, gancho textual, gancho visual, CTA)", data.t7_indice2)}
+      ${row("Guion #3 (idea, formato, gancho textual, gancho visual, CTA)", data.t7_indice3)}
+      ${row("Fecha", data.t7_g1Fecha)}
+      ${row("Plataforma", data.t7_g1Plataforma)}
+      ${row("Pilar", data.t7_g1Pilar)}
+      ${row("Estructura usada", data.t7_g1Estructura)}
+      ${row("Gancho verbal (primeras 1-3 frases)", data.t7_g1GanchoVerbal)}
+      ${row("Gancho visual (qué se ve en pantalla)", data.t7_g1GanchoVisual)}
+      ${row("Gancho textual (texto superpuesto)", data.t7_g1GanchoTextual)}
+      ${row("Desarrollo", data.t7_g1Desarrollo)}
+      ${row("CTA", data.t7_g1Cta)}
+      ${row("Resultado (llenar después de publicar)", data.t7_g1Resultado)}
+      ${row("Notas de mejora", data.t7_g1Notas)}
+      ${row("Fecha", data.t7_g2Fecha)}
+      ${row("Plataforma", data.t7_g2Plataforma)}
+      ${row("Pilar", data.t7_g2Pilar)}
+      ${row("Estructura usada", data.t7_g2Estructura)}
+      ${row("Gancho verbal (primeras 1-3 frases)", data.t7_g2GanchoVerbal)}
+      ${row("Gancho visual (qué se ve en pantalla)", data.t7_g2GanchoVisual)}
+      ${row("Gancho textual (texto superpuesto)", data.t7_g2GanchoTextual)}
+      ${row("Desarrollo", data.t7_g2Desarrollo)}
+      ${row("CTA", data.t7_g2Cta)}
+      ${row("Resultado (llenar después de publicar)", data.t7_g2Resultado)}
+      ${row("Notas de mejora", data.t7_g2Notas)}
+      ${row("Fecha", data.t7_g3Fecha)}
+      ${row("Plataforma", data.t7_g3Plataforma)}
+      ${row("Pilar", data.t7_g3Pilar)}
+      ${row("Estructura usada", data.t7_g3Estructura)}
+      ${row("Gancho verbal (primeras 1-3 frases)", data.t7_g3GanchoVerbal)}
+      ${row("Gancho visual (qué se ve en pantalla)", data.t7_g3GanchoVisual)}
+      ${row("Gancho textual (texto superpuesto)", data.t7_g3GanchoTextual)}
+      ${row("Desarrollo", data.t7_g3Desarrollo)}
+      ${row("CTA", data.t7_g3Cta)}
+      ${row("Resultado (llenar después de publicar)", data.t7_g3Resultado)}
+      ${row("Notas de mejora", data.t7_g3Notas)}
+      ${row("Tu contexto de marca en una línea", data.t7_contextoMarca)}
+      ${row("Tus palabras o frases características", data.t7_palabrasCaracteristicas)}
+      ${row("Tu tono principal", data.t7_tonoPrincipal)}
+      ${row("Pegá acá el resultado final del Brand Voice (si ya lo generaste con IA)", data.t7_brandVoiceResultado)}
+      ${row("Cuenta / URL", data.t7_v1Cuenta)}
+      ${row("Gancho verbal (primeras 3 segundos)", data.t7_v1GanchoVerbal)}
+      ${row("Gancho visual (qué se ve en pantalla)", data.t7_v1GanchoVisual)}
+      ${row("Gancho textual (texto superpuesto)", data.t7_v1GanchoTextual)}
+      ${row("Estructura usada", data.t7_v1Estructura)}
+      ${row("Por qué creés que funcionó", data.t7_v1PorQue)}
+      ${row("Cuenta / URL", data.t7_v2Cuenta)}
+      ${row("Gancho verbal (primeras 3 segundos)", data.t7_v2GanchoVerbal)}
+      ${row("Gancho visual (qué se ve en pantalla)", data.t7_v2GanchoVisual)}
+      ${row("Gancho textual (texto superpuesto)", data.t7_v2GanchoTextual)}
+      ${row("Estructura usada", data.t7_v2Estructura)}
+      ${row("Por qué creés que funcionó", data.t7_v2PorQue)}
+      ${row("Cuenta / URL", data.t7_v3Cuenta)}
+      ${row("Gancho verbal (primeras 3 segundos)", data.t7_v3GanchoVerbal)}
+      ${row("Gancho visual (qué se ve en pantalla)", data.t7_v3GanchoVisual)}
+      ${row("Gancho textual (texto superpuesto)", data.t7_v3GanchoTextual)}
+      ${row("Estructura usada", data.t7_v3Estructura)}
+      ${row("Por qué creés que funcionó", data.t7_v3PorQue)}
+      ${row("Tipo de gancho verbal que más se repite", data.t7_patronGanchoVerbal)}
+      ${row("Tipo de gancho visual que más se repite", data.t7_patronGanchoVisual)}
+      ${row("Características comunes en las estructuras de guion", data.t7_caracteristicasComunes)}
+      ${row("Patrones que VOS querés incorporar", data.t7_patronesIncorporar)}
+      ${row("Estructura #1 — Cuándo la usás", data.t7_e1CuandoUso)}
+      ${row("Estructura #1 — Ejemplo de guion tuyo que la usó", data.t7_e1Ejemplo)}
+      ${row("Estructura #2 — Cuándo la usás", data.t7_e2CuandoUso)}
+      ${row("Estructura #2 — Ejemplo de guion tuyo que la usó", data.t7_e2Ejemplo)}
+      ${row("Estructura #3 — Cuándo la usás", data.t7_e3CuandoUso)}
+      ${row("Estructura #3 — Ejemplo de guion tuyo que la usó", data.t7_e3Ejemplo)}
+      ${row("Tu estructura favorita hasta ahora", data.t7_estructuraFavorita)}
+      ${row("Por qué", data.t7_estructuraFavoritaPorque)}
+      ${row("Tipo de gancho que mejor te funciona (pregunta / dato / confesión / afirmación)", data.t7_tipoGanchoMejor)}
+      ${row("Tus 5 mejores ganchos verbales creados — #1", data.t7_gancho1)}
+      ${row("Tus 5 mejores ganchos verbales creados — #2", data.t7_gancho2)}
+      ${row("Tus 5 mejores ganchos verbales creados — #3", data.t7_gancho3)}
+      ${row("Tus 5 mejores ganchos verbales creados — #4", data.t7_gancho4)}
+      ${row("Tus 5 mejores ganchos verbales creados — #5", data.t7_gancho5)}
+      ${row("Tu patrón ganador analizado con el sistema E.N.C. — Estímulo núcleo", data.t7_estimuloNucleo)}
+      ${row("Nivel de carga cognitiva", data.t7_nivelCargaCognitiva)}
+      ${row("Contexto", data.t7_contextoENC)}
+      ${row("Ejemplo de gancho visual que harás", data.t7_ejemploGanchoVisual)}
+      ${row("Forma visual que usarás", data.t7_formaVisual)}
+      ${row("Cómo la aplicás en tu nicho", data.t7_comoAplicoFormaVisual)}
+      ${row("Gancho visual #1 que el bot te generó y querés usar", data.t7_botGancho1)}
+      ${row("Gancho visual #2 que el bot te generó y querés usar", data.t7_botGancho2)}
+      ${row("Gancho visual #3 que el bot te generó y querés usar", data.t7_botGancho3)}
+      ${row("Referencia que analizás antes de crear (qué cuenta, hashtag o video)", data.t7_referenciaAnalizo)}
+      ${row("Tus 3 mejores ganchos visuales hasta ahora — #1", data.t7_mejorGanchoVisual1)}
+      ${row("Tus 3 mejores ganchos visuales hasta ahora — #2", data.t7_mejorGanchoVisual2)}
+      ${row("Tus 3 mejores ganchos visuales hasta ahora — #3", data.t7_mejorGanchoVisual3)}
+      ${row("CTA para Reels / TikTok", data.t7_ctaReels)}
+      ${row("CTA para Carruseles", data.t7_ctaCarruseles)}
+      ${row("CTA para Historias", data.t7_ctaHistorias)}
+      ${row("CTA para generar comentarios", data.t7_ctaComentarios)}
+      ${row("CTA para generar guardados", data.t7_ctaGuardados)}
+      ${row("CTA para generar DMs / leads", data.t7_ctaDms)}
+      ${row("CTA para venta directa", data.t7_ctaVentaDirecta)}
+      ${row("Tu CTA #1 más efectivo", data.t7_ctaEfectivo1)}
+      ${row("Resultado / respuesta que generó", data.t7_ctaEfectivo1Resultado)}
+      ${row("Tu CTA #2 más efectivo", data.t7_ctaEfectivo2)}
+      ${row("Resultado / respuesta que generó", data.t7_ctaEfectivo2Resultado)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 8 — Calendario de Contenido</div>
+      ${row("Frecuencia de publicación semanal elegida", data.t8_frecuenciaPublicacion)}
+      ${row("Mejor horario de publicación (según tus métricas)", data.t8_mejorHorario)}
+      ${row("Lunes — idea, nivel de energía, formato y ganchos", data.t8_semanaLunes)}
+      ${row("Martes — idea, nivel de energía, formato y ganchos", data.t8_semanaMartes)}
+      ${row("Miércoles — idea, nivel de energía, formato y ganchos", data.t8_semanaMiercoles)}
+      ${row("Jueves — idea, nivel de energía, formato y ganchos", data.t8_semanaJueves)}
+      ${row("Viernes — idea, nivel de energía, formato y ganchos", data.t8_semanaViernes)}
+      ${row("Sábado — idea, nivel de energía, formato y ganchos", data.t8_semanaSabado)}
+      ${row("Domingo — idea, nivel de energía, formato y ganchos", data.t8_semanaDomingo)}
+      ${row("Idea en pipeline #1 (idea, formato, prioridad)", data.t8_pipeline1)}
+      ${row("Idea en pipeline #2 (idea, formato, prioridad)", data.t8_pipeline2)}
+      ${row("Idea en pipeline #3 (idea, formato, prioridad)", data.t8_pipeline3)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 9 — Banco de Carruseles</div>
+      ${row("Carrusel #1 (tema, estilo, tipo, resultado)", data.t9_indice1)}
+      ${row("Carrusel #2 (tema, estilo, tipo, resultado)", data.t9_indice2)}
+      ${row("Tema", data.t9_c1Tema)}
+      ${row("Estilo de carrusel usado", data.t9_c1Estilo)}
+      ${row("Tipo", data.t9_c1Tipo)}
+      ${row("Referencia visual (cuenta que inspiró el formato)", data.t9_c1Referencia)}
+      ${row("Guion completo, slide por slide (texto principal y elemento visual de cada uno)", data.t9_c1Slides)}
+      ${row("Resultado (llenar después de publicar)", data.t9_c1Resultado)}
+      ${row("Tema", data.t9_c2Tema)}
+      ${row("Estilo de carrusel usado", data.t9_c2Estilo)}
+      ${row("Tipo", data.t9_c2Tipo)}
+      ${row("Referencia visual (cuenta que inspiró el formato)", data.t9_c2Referencia)}
+      ${row("Guion completo, slide por slide (texto principal y elemento visual de cada uno)", data.t9_c2Slides)}
+      ${row("Resultado (llenar después de publicar)", data.t9_c2Resultado)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 10 — Mi Lead Magnet</div>
+      ${row("Nombre del lead magnet", data.t10_nombre)}
+      ${row("Promesa principal (qué aprenden / obtienen)", data.t10_promesa)}
+      ${row("Formato", data.t10_formato)}
+      ${row("Tiempo de consumo", data.t10_tiempoConsumo)}
+      ${row("¿A qué dolor del avatar responde?", data.t10_dolorResponde)}
+      ${row("¿Cómo conecta con la oferta principal?", data.t10_comoConecta)}
+      ${row("Enlace al lead magnet (si ya existe)", data.t10_enlace)}
+      ${row("Cuántas personas lo han pedido", data.t10_cuantasPedido)}
+      ${row("Conversión a compra (aprox.)", data.t10_conversion)}
+      ${row("Ajustes realizados", data.t10_ajustes)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 11 — Secuencias de Historias</div>
+      ${row("Story 1 — Situación de urgencia", data.t11_urgS1)}
+      ${row("Story 2 — Prueba breve (testimonio)", data.t11_urgS2)}
+      ${row("Story 3 — Detalle concreto de urgencia", data.t11_urgS3)}
+      ${row("Story 4 — CTA clara", data.t11_urgS4)}
+      ${row("Story 5 (opcional) — Recordatorio final", data.t11_urgS5)}
+      ${row("ONE SHOT — Story 1: Impacto visual (el resultado)", data.t11_oneShotS1)}
+      ${row("POLLS — Story 1: Identificación (encuesta)", data.t11_pollsS1)}
+      ${row("POLLS — Story 2: Segunda encuesta / profundización", data.t11_pollsS2)}
+      ${row("POLLS — Story 3+: Profundización y CTA estratégica", data.t11_pollsS3)}
+      ${row("LIBRE/LIFESTYLE — Story 1: Escena real (lo que estás haciendo)", data.t11_libreS1)}
+      ${row("LIBRE/LIFESTYLE — Story 2: Micro enseñanza (tip o reflexión)", data.t11_libreS2)}
+      ${row("Nombre del recurso a entregar", data.t11_lmNombreRecurso)}
+      ${row("Story 1 — Presentación del recurso", data.t11_lmS1)}
+      ${row("Story 2 — Para quién es y por qué vale la pena", data.t11_lmS2)}
+      ${row("Story 3 — Cómo pedirlo (CTA)", data.t11_lmS3)}
+      ${row("Palabra clave de activación", data.t11_lmPalabraClave)}
+      ${row("Idea #1 para historia (idea, tipo: educar/entretener/vender, CTA)", data.t11_ideaHistoria1)}
+      ${row("Idea #2 para historia (idea, tipo: educar/entretener/vender, CTA)", data.t11_ideaHistoria2)}
+      ${row("Idea #3 para historia (idea, tipo: educar/entretener/vender, CTA)", data.t11_ideaHistoria3)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 12 — Scripts de DMs y Setteo</div>
+      ${row("Apertura #1 (de dónde sale la conversación, mensaje de apertura, respuesta típica, ¿funciona?)", data.t12_apertura1)}
+      ${row("Apertura #2 (de dónde sale la conversación, mensaje de apertura, respuesta típica, ¿funciona?)", data.t12_apertura2)}
+      ${row("Apertura #3 (de dónde sale la conversación, mensaje de apertura, respuesta típica, ¿funciona?)", data.t12_apertura3)}
+      ${row("Objeción #1 (objeción, tu respuesta, ¿funciona?, notas de mejora)", data.t12_objecion1)}
+      ${row("Objeción #2 (objeción, tu respuesta, ¿funciona?, notas de mejora)", data.t12_objecion2)}
+      ${row("Objeción #3 (objeción, tu respuesta, ¿funciona?, notas de mejora)", data.t12_objecion3)}
+      ${row("Número de casos de éxito", data.t12_numeroCasos)}
+      ${row("Transformación que logran", data.t12_transformacion)}
+      ${row("Caso de éxito 1 — ¿Cómo llegó?", data.t12_caso1ComoLlego)}
+      ${row("Caso de éxito 1 — Su victoria resumida en 1 línea", data.t12_caso1Victoria)}
+      ${row("Caso de éxito 2 — ¿Cómo llegó?", data.t12_caso2ComoLlego)}
+      ${row("Caso de éxito 2 — Su victoria resumida en 1 línea", data.t12_caso2Victoria)}
+      ${row("Caso de éxito 3 — ¿Cómo llegó?", data.t12_caso3ComoLlego)}
+      ${row("Caso de éxito 3 — Su victoria resumida en 1 línea", data.t12_caso3Victoria)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 13 — Banco de CTAs</div>
+      ${row("CTAs para Reels/TikToks que probaste (CTA, contexto de uso, cuántos comentarios genera)", data.t13_ctaReelsDetalle)}
+      ${row("CTAs para Carruseles que probaste (CTA, contexto de uso, cuántos comentarios genera)", data.t13_ctaCarruselesDetalle)}
+      ${row("CTAs para Historias que probaste (CTA, contexto de uso, cuántos comentarios genera)", data.t13_ctaHistoriasDetalle)}
+      ${row("CTA #1", data.t13_ctaTop1)}
+      ${row("Por qué funciona", data.t13_ctaTop1PorQue)}
+      ${row("CTA #2", data.t13_ctaTop2)}
+      ${row("Por qué funciona", data.t13_ctaTop2PorQue)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 14 — Banco de Ads</div>
+      ${row("Competidor #1 (nombre, ángulo que usa, gancho que usa, qué lo hace efectivo)", data.t14_competidor1)}
+      ${row("Competidor #2 (nombre, ángulo que usa, gancho que usa, qué lo hace efectivo)", data.t14_competidor2)}
+      ${row("Competidor #3 (nombre, ángulo que usa, gancho que usa, qué lo hace efectivo)", data.t14_competidor3)}
+      ${row("Ángulo #1 (ángulo, dolor del avatar que aborda, prioridad para probar)", data.t14_angulo1)}
+      ${row("Ángulo #2 (ángulo, dolor del avatar que aborda, prioridad para probar)", data.t14_angulo2)}
+      ${row("Ángulo #3 (ángulo, dolor del avatar que aborda, prioridad para probar)", data.t14_angulo3)}
+      ${row("Ángulo", data.t14_ad1Angulo)}
+      ${row("Formato", data.t14_ad1Formato)}
+      ${row("Gancho (primeras 3 segundos / primera línea)", data.t14_ad1Gancho)}
+      ${row("Desarrollo", data.t14_ad1Desarrollo)}
+      ${row("CTA", data.t14_ad1Cta)}
+      ${row("Métricas (llenar cuando esté activo: CTR / CPL / ROAS)", data.t14_ad1Metricas)}
+      ${row("Ángulo", data.t14_ad2Angulo)}
+      ${row("Formato", data.t14_ad2Formato)}
+      ${row("Gancho (primeras 3 segundos / primera línea)", data.t14_ad2Gancho)}
+      ${row("Desarrollo", data.t14_ad2Desarrollo)}
+      ${row("CTA", data.t14_ad2Cta)}
+      ${row("Métricas (llenar cuando esté activo: CTR / CPL / ROAS)", data.t14_ad2Metricas)}
+      ${row("Ángulo", data.t14_ad3Angulo)}
+      ${row("Formato", data.t14_ad3Formato)}
+      ${row("Gancho (primeras 3 segundos / primera línea)", data.t14_ad3Gancho)}
+      ${row("Desarrollo", data.t14_ad3Desarrollo)}
+      ${row("CTA", data.t14_ad3Cta)}
+      ${row("Métricas (llenar cuando esté activo: CTR / CPL / ROAS)", data.t14_ad3Metricas)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 15 — Mis Campañas</div>
+      ${row("Pixel de Meta instalado", data.t15_pixelInstalado)}
+      ${row("Dominio verificado", data.t15_dominioVerificado)}
+      ${row("Cuenta de anuncios", data.t15_cuentaAnuncios)}
+      ${row("Objetivo principal de las campañas", data.t15_objetivoPrincipal)}
+      ${row("Campaña #1 (nombre, objetivo, público, presupuesto diario, fecha de inicio)", data.t15_campana1)}
+      ${row("Campaña #2 (nombre, objetivo, público, presupuesto diario, fecha de inicio)", data.t15_campana2)}
+      ${row("Resumen de tus métricas de campañas hasta ahora (inversión, CPL, CTR, leads, ventas, ROAS)", data.t15_metricasNotas)}
+      ${row("Aprendizajes de campañas (qué cambiaste, por qué, si funcionó)", data.t15_aprendizajes)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 16 — Mis Métricas de Contenido</div>
+      ${row("Análisis semanal de contenido (video con más alcance, mejor retención, más conversiones, insight clave)", data.t16_analisisSemanal)}
+      ${row("Banco de videos a resucitar (video, fecha original, por qué funcionó, qué cambio harías)", data.t16_videosResucitar)}
+      ${row("Tu plan de acción después de ver las métricas", data.t16_planAccion)}
+      ${row("Qué tipos de gancho te funcionan mejor", data.t16_ganchosFuncionan)}
+      ${row("Qué estructuras de guion dan más retención", data.t16_estructurasRetencion)}
+      ${row("Qué días/horarios tienen más alcance", data.t16_diasHorarios)}
+      ${row("Qué formatos convierten más a seguidores", data.t16_formatosSeguidores)}
+      ${row("Qué formatos convierten más a clientes", data.t16_formatosClientes)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 17 — Banco de YouTube</div>
+      ${row("¿YouTube es parte de tu estrategia?", data.t17_esParteEstrategia)}
+      ${row("Formato elegido para YouTube", data.t17_formatoElegido)}
+      ${row("Frecuencia de publicación", data.t17_frecuencia)}
+      ${row("Idea #1 (idea/tema, título propuesto, concepto de miniatura, palabras clave)", data.t17_idea1)}
+      ${row("Idea #2 (idea/tema, título propuesto, concepto de miniatura, palabras clave)", data.t17_idea2)}
+      ${row("Idea #3 (idea/tema, título propuesto, concepto de miniatura, palabras clave)", data.t17_idea3)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 18 — Prompts y Procesos</div>
+      ${row("Prompts favoritos para Guionización (proceso, propósito, resultado, prompt base)", data.t18_promptsGuionizacion)}
+      ${row("Prompts favoritos para Ganchos", data.t18_promptsGanchos)}
+      ${row("Prompts favoritos para Carruseles", data.t18_promptsCarruseles)}
+      ${row("Prompts favoritos para Historias", data.t18_promptsHistorias)}
+      ${row("Prompts favoritos para Investigación", data.t18_promptsInvestigacion)}
+      ${row("Prompts favoritos para Ads", data.t18_promptsAds)}
+      ${row("Prompts favoritos de IA generativa (Higgsfield / Gemini / Nanobanana)", data.t18_promptsIAGenerativa)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">Tab 19 — Mi Plan de Lanzamiento</div>
+      ${row("Nombre oficial del programa/masterclass/entrenamiento", data.t19_nombreOferta)}
+      ${row("Promesa principal — formato recomendado (Hoy, en X tiempo, vas a... y saldrás con... sin..., usando...)", data.t19_promesaFormato)}
+      ${row("Promesa principal — versión para landing (Resultado concreto en duración aunque objeción)", data.t19_promesaLanding)}
+      ${row("Qué harán hoy — Acción #1", data.t19_accion1)}
+      ${row("Qué harán hoy — Acción #2", data.t19_accion2)}
+      ${row("Qué harán hoy — Acción #3", data.t19_accion3)}
+      ${row("Qué harán hoy — Acción #4 (opcional)", data.t19_accion4)}
+      ${row("Qué se llevan listos — Entregable #1", data.t19_entregable1)}
+      ${row("Qué se llevan listos — Entregable #2", data.t19_entregable2)}
+      ${row("Qué se llevan listos — Entregable #3", data.t19_entregable3)}
+      ${row("Qué se llevan listos — Entregable #4", data.t19_entregable4)}
+      ${row("Nombre del sistema", data.t19_nombreSistema)}
+      ${row("Cómo funciona tu método y qué lo vuelve único (en 1 frase)", data.t19_descripcionSistema)}
+      ${row("Objeción central que neutralizás", data.t19_objecionCentral)}
+      ${row("Texto: \"En esta sesión eliminamos [objeción] porque [razón práctica]\"", data.t19_textoObjecion)}
+      ${row("Bloque 1 — Nombre y qué se hará", data.t19_bloque1)}
+      ${row("Bloque 2 — Nombre y qué se ejecutará", data.t19_bloque2)}
+      ${row("Bloque 3 — Nombre y entrega del activo", data.t19_bloque3)}
+      ${row("Bloque 4 — Nombre y prueba mínima", data.t19_bloque4)}
+      ${row("Bloque 5 — Cierre + CTA: qué acción deben tomar después", data.t19_bloque5)}
+      ${row("Demo en vivo (antes→después real / creación de un recurso en vivo / corrección de un ejemplo)", data.t19_demo)}
+      ${row("Entrega express (\"[Plantilla X] completada en directo\")", data.t19_entregaExpress)}
+      ${row("Bonus #1 (qué es + valor percibido)", data.t19_bonus1)}
+      ${row("Bonus #2 (qué es + valor percibido)", data.t19_bonus2)}
+      ${row("Bonus #3 (qué es + valor percibido)", data.t19_bonus3)}
+      ${row("Resultados finales esperables (\"Saldrás con...\", \"Tendrás listo...\")", data.t19_resultadosFinales)}
+      ${row("Contenido del programa (tema/habilidad, aplicación, recurso entregado — en lista)", data.t19_contenidoPrograma)}
+      ${row("Resumen final en 1 párrafo para la landing / guion del pitch", data.t19_resumenFinal)}
+      ${row("Notas del reporte de resultados del lanzamiento (si ya lo hiciste)", data.t19_reporteLanzamiento)}
+    </div>
+
     <div class="footer">
       <p>Esta encuesta fue completada el ${new Date().toLocaleString("es-AR")}</p>
     </div>
