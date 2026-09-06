@@ -536,3 +536,136 @@ export async function sendEncuestaCoachingEmailToFernando(data: any) {
     throw error;
   }
 }
+
+export async function sendEncuesta100KEmailToFernando(data: any) {
+  try {
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY not configured");
+      return;
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const row = (label: string, value: any) =>
+      value ? `<p><strong>${label}:</strong> ${String(value).replace(/\n/g, "<br>")}</p>` : "";
+
+    const emailContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: Arial, sans-serif; color: #333; }
+    .container { max-width: 640px; margin: 0 auto; padding: 20px; }
+    .header { background: #d97706; color: white; padding: 20px; border-radius: 8px 8px 0 0; }
+    .section { background: #f8fafc; padding: 15px; margin: 10px 0; border-left: 4px solid #d97706; }
+    .section-title { font-weight: bold; color: #d97706; margin-bottom: 8px; }
+    .footer { text-align: center; color: #999; margin-top: 30px; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📘 Nueva Encuesta — Manual de Negocio 100K</h1>
+      <p>${data.nombre} completó su Tab 1 (Mi Punto de Partida)</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">👤 Datos Básicos</div>
+      ${row("Nombre", data.nombre)}
+      ${row("Email", data.email)}
+      ${row("Negocio / Nicho", data.negocioNicho)}
+      ${row("Objetivo en 12 meses", data.objetivo12Meses)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">🚪 1.1 La Puerta</div>
+      ${row("¿Ya tiene algo concreto que vender?", data.puerta === "si" ? "Sí (Puerta A)" : "No (Puerta B)")}
+    </div>
+
+    <div class="section">
+      <div class="section-title">📍 1.2 Mi Info Actual / Mi Punto de Arranque</div>
+      ${row("Qué vende actualmente", data.queVendesActualmente)}
+      ${row("A quién le vende", data.aQuienLeVendes)}
+      ${row("A qué precio vende", data.aQuePrecioVendes)}
+      ${row("Cuánto factura al mes", data.cuantoFacturasAlMes)}
+      ${row("De dónde llegan los clientes", data.deDondeLleganClientes)}
+      ${row("Objeción que más escucha", data.objecionMasEscuchas)}
+      ${row("Qué no está funcionando", data.queNoEstaFuncionando)}
+      ${row("Qué sabe hacer que a otro le costaría", data.queSabesHacer)}
+      ${row("Qué le preguntan sus conocidos", data.quePreguntanConocidos)}
+      ${row("A quién ha ayudado (aunque gratis)", data.aQuienHasAyudado)}
+      ${row("Qué intentó antes que no funcionó", data.queIntentasteAntes)}
+      ${row("Tiempo real por semana disponible", data.cuantoTiempoDedicas)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">🎯 1.3 Mi Punto Cero</div>
+      ${row("Categoría de vida", data.categoriaVida)}
+      ${row("Moneda de entrada", data.monedaEntrada)}
+      ${row("Rubro", data.rubro)}
+      ${row("Nicho", data.nicho)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">💡 1.4 Mi Paradigma Único</div>
+      ${row("Consenso de su rubro (a matar)", data.consensoDeMiRubro)}
+      ${row("Lo que sostiene", data.loQueYoSostengo)}
+      ${row("Cómo lo llama", data.comoLoLlamo)}
+      ${row("Qué significa en concreto", data.queSignificaEnConcreto)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">⭐ 1.5 Mi Historia</div>
+      ${row("Cuándo empezó", data.cuandoEmpezo)}
+      ${row("El fondo", data.elFondo)}
+      ${row("La emoción", data.laEmocion)}
+      ${row("El giro", data.elGiro)}
+      ${row("La prueba", data.laPrueba)}
+      ${row("Objeción que deja sin argumento", data.laObjecionSinArgumento)}
+      ${row("Lo que todavía le cuesta", data.loQueTodaviaCuesta)}
+      ${row("Frase para quien está donde él/ella estaba", data.laFraseParaOtro)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">⭐ 1.6 Testimonios y Pruebas</div>
+      ${row("Testimonios y pruebas", data.testimoniosYPruebas)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">📱 1.7 Presencia Digital</div>
+      ${row("Instagram", data.instagram)}
+      ${row("TikTok", data.tiktok)}
+      ${row("YouTube", data.youtube)}
+      ${row("Bio actual", data.bioActual)}
+      ${row("Foto de perfil actual", data.fotoPerfilActual)}
+    </div>
+
+    <div class="section">
+      <div class="section-title">🏁 1.8 Objetivo Personal</div>
+      ${row("Qué quiere lograr", data.queQuieresLograr)}
+      ${row("Cómo sabrá que lo logró", data.comoSabrasQueLoLograste)}
+      ${row("Observaciones", data.observaciones)}
+    </div>
+
+    <div class="footer">
+      <p>Esta encuesta fue completada el ${new Date().toLocaleString("es-AR")}</p>
+    </div>
+  </div>
+</body>
+</html>
+    `;
+
+    const result = await resend.emails.send({
+      from: "Manual de Negocio 100K <onboarding@resend.dev>",
+      to: process.env.ENCUESTA_100K_EMAIL_TO || "agenciawebhispana@gmail.com",
+      subject: `📘 Nueva Encuesta 100K: ${data.nombre}`,
+      html: emailContent,
+    });
+
+    console.log("Encuesta 100k email sent successfully:", result);
+    return result;
+  } catch (error) {
+    console.error("Error sending encuesta 100k email:", error);
+    throw error;
+  }
+}
