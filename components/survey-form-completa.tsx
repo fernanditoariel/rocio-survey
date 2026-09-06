@@ -1,18 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { FORM_SECTIONS, PRESENTIAL_QUESTIONS } from "@/lib/constants";
+import { FORM_SECTIONS_COMPLETA } from "@/lib/constants-completa";
 
-export function SurveyForm() {
+export function SurveyFormCompleta() {
   const [currentSection, setCurrentSection] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState<Record<string, any>>({});
   const [submittedData, setSubmittedData] = useState<Record<string, any>>({});
 
-  const section = FORM_SECTIONS[currentSection];
+  const section = FORM_SECTIONS_COMPLETA[currentSection];
   const isFirstSection = currentSection === 0;
-  const isLastSection = currentSection === FORM_SECTIONS.length - 1;
+  const isLastSection = currentSection === FORM_SECTIONS_COMPLETA.length - 1;
+
+  const visibleFields = (section.fields as any[]).filter(
+    (field) => !field.showIf || field.showIf(formData)
+  );
 
   const handleInputChange = (fieldName: string, value: string) => {
     setFormData((prev) => ({
@@ -22,8 +26,7 @@ export function SurveyForm() {
   };
 
   const handleNext = async () => {
-    // Validar que todos los campos de esta sección estén completos
-    const missingFields = section.fields.filter((field) => {
+    const missingFields = visibleFields.filter((field) => {
       if (!field.required) return false;
       const value = formData[field.name];
       return !value || value.trim() === "";
@@ -37,13 +40,13 @@ export function SurveyForm() {
 
     if (!isLastSection) {
       setCurrentSection(currentSection + 1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
 
-    // Enviar al servidor
     setLoading(true);
     try {
-      const response = await fetch("/api/survey", {
+      const response = await fetch("/api/survey-completa", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -52,6 +55,7 @@ export function SurveyForm() {
       if (response.ok) {
         setSubmittedData(formData);
         setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         alert("Error al enviar. Intentá de nuevo.");
       }
@@ -61,6 +65,11 @@ export function SurveyForm() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handlePrev = () => {
+    setCurrentSection(currentSection - 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   if (submitted) {
@@ -85,11 +94,10 @@ export function SurveyForm() {
               ¡Gracias Rocío! 🎉
             </h2>
             <p className="text-lg text-slate-600 mb-6">
-              Recibimos tu encuesta correctamente.
+              Recibimos la encuesta completa correctamente.
             </p>
           </div>
 
-          {/* Mostrar todas las respuestas */}
           <div className="bg-slate-50 rounded-lg p-6 mb-8 border border-slate-200">
             <h3 className="text-xl font-bold text-slate-900 mb-4">
               📋 Resumen de tu encuesta:
@@ -120,7 +128,7 @@ export function SurveyForm() {
 
           <div className="text-center">
             <p className="text-slate-600 mb-4">
-              Fernando revisará tus respuestas y nos vemos en la reunión. 🚀
+              Fernando revisará tus respuestas. 🚀
             </p>
             <p className="text-sm text-slate-500">
               Si tienes dudas, escribile a Fernando por WhatsApp
@@ -137,17 +145,17 @@ export function SurveyForm() {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-3xl font-bold text-slate-900">
-              Encuesta de Descubrimiento
+              Encuesta Completa
             </h1>
             <div className="text-sm text-slate-600">
-              Paso {currentSection + 1} de {FORM_SECTIONS.length}
+              Paso {currentSection + 1} de {FORM_SECTIONS_COMPLETA.length}
             </div>
           </div>
           <div className="w-full bg-slate-200 rounded-full h-2">
             <div
               className="bg-blue-600 h-2 rounded-full transition-all duration-300"
               style={{
-                width: `${((currentSection + 1) / FORM_SECTIONS.length) * 100}%`,
+                width: `${((currentSection + 1) / FORM_SECTIONS_COMPLETA.length) * 100}%`,
               }}
             />
           </div>
@@ -157,11 +165,13 @@ export function SurveyForm() {
           <h2 className="text-2xl font-bold text-slate-900 mb-2">
             {section.title}
           </h2>
-          <p className="text-slate-600">{section.description}</p>
+          {"description" in section && section.description && (
+            <p className="text-slate-600">{section.description}</p>
+          )}
         </div>
 
         <div className="space-y-6">
-          {section.fields.map((field) => (
+          {visibleFields.map((field) => (
             <div key={field.name}>
               <label
                 htmlFor={field.name}
@@ -194,8 +204,8 @@ export function SurveyForm() {
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
                 >
                   <option value="">Seleccioná una opción</option>
-                  {("options" in field && field.options) &&
-                    field.options.map((opt) => (
+                  {field.options &&
+                    field.options.map((opt: any) => (
                       <option key={opt.value} value={opt.value}>
                         {opt.label}
                       </option>
@@ -224,7 +234,7 @@ export function SurveyForm() {
         <button
           type="button"
           disabled={isFirstSection}
-          onClick={() => setCurrentSection(currentSection - 1)}
+          onClick={handlePrev}
           className={`px-6 py-2 rounded-lg border border-blue-600 text-blue-600 font-medium ${
             isFirstSection ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-50"
           }`}

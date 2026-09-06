@@ -1,6 +1,6 @@
 export const WEB_BRIEF_INTRO = {
   title: "Antes de Construir tu Web",
-  subtitle: "Definiciones para armar la plataforma en RentalHive/WordPress",
+  subtitle: "Definiciones para armar la plataforma",
   description:
     "Estas respuestas condicionan cómo se configura todo, desde la comisión hasta el dominio. Te va a tomar 10-15 minutos.",
 };
@@ -17,13 +17,6 @@ export const WEB_BRIEF_SECTIONS = [
         type: "textarea",
         required: true,
         placeholder: "Ej: Los voy a visitar como hice en Punta Alta, ya tengo contactos ahí...",
-      },
-      {
-        name: "diferenciacionLocal",
-        label:
-          "Ya existen alquilaenpehuen.com, checkinmonte.com y parairnos.com en esas localidades. ¿Cómo pensás competir con eso?",
-        type: "textarea",
-        required: true,
       },
       {
         name: "propuestaValorDueno",
@@ -80,17 +73,6 @@ export const WEB_BRIEF_SECTIONS = [
         ],
       },
       {
-        name: "calendarioDoble",
-        label: "Si un dueño ya está en Airbnb y le reservan en tu web el mismo día, ¿cómo se evita el doble booking?",
-        type: "select",
-        required: true,
-        options: [
-          { value: "manual", label: "El dueño actualiza el calendario a mano" },
-          { value: "plugin", label: "Quiero evaluar un plugin de sincronización" },
-          { value: "no-pensado", label: "No lo había pensado" },
-        ],
-      },
-      {
         name: "cobroDueno",
         label: "¿Cuándo cobra el dueño?",
         type: "select",
@@ -136,7 +118,7 @@ export const WEB_BRIEF_SECTIONS = [
       },
       {
         name: "logoExistente",
-        label: "¿Tenés ya un isologo de tu marca personal que debamos respetar?",
+        label: "¿Tenés ya un logo de tu marca personal que debamos respetar?",
         type: "select",
         required: true,
         options: [
@@ -153,30 +135,13 @@ export const WEB_BRIEF_SECTIONS = [
     fields: [
       {
         name: "alcanceLanzamiento",
-        label: "¿Lanzamos solo con Punta Alta, o Pehuén Có y Monte Hermoso entran desde el día 1?",
+        label: "¿Lanzamos solo con Sierra de la Ventana, o Pehuén Có y Monte Hermoso entran desde el día 1?",
         type: "select",
         required: true,
         options: [
-          { value: "solo-punta-alta", label: "Solo Punta Alta" },
+          { value: "solo-sierra-ventana", label: "Solo Sierra de la Ventana" },
           { value: "las-tres", label: "Las tres localidades desde el día 1" },
           { value: "no-decidido", label: "Todavía no lo decidí" },
-        ],
-      },
-      {
-        name: "propiedadesConfirmadas",
-        label: "¿Cuántas propiedades tenés hoy con dueño confirmado y dispuesto a publicar?",
-        type: "text",
-        required: true,
-        placeholder: "Número real, no el potencial",
-      },
-      {
-        name: "idioma",
-        label: "¿El sitio va solo en español o también en inglés?",
-        type: "select",
-        required: true,
-        options: [
-          { value: "solo-espanol", label: "Solo español" },
-          { value: "espanol-ingles", label: "Español e inglés" },
         ],
       },
       {
@@ -224,69 +189,6 @@ export const WEB_BRIEF_SECTIONS = [
           { value: "estricta", label: "Estricta" },
           { value: "no-decidido", label: "Todavía no lo decidí" },
         ],
-      },
-    ],
-  },
-  {
-    id: "tecnico",
-    title: "Técnico — RentalHive",
-    description: "",
-    fields: [
-      {
-        name: "confirmaWooCommerce",
-        label: "RentalHive funciona sobre WooCommerce. ¿Confirmás esa base?",
-        type: "select",
-        required: true,
-        options: [
-          { value: "confirmo", label: "Sí, dale con WooCommerce" },
-          { value: "evaluar-otra", label: "Quiero evaluar otra alternativa antes" },
-        ],
-      },
-      {
-        name: "googleMapsApi",
-        label: "El mapa necesita una API key de Google Maps (uso gratis limitado, después se cobra). ¿Quién abre la cuenta?",
-        type: "select",
-        required: true,
-        options: [
-          { value: "yo-abro", label: "La abro yo con mi tarjeta" },
-          { value: "ustedes-abren", label: "Ábranla ustedes a mi nombre" },
-        ],
-      },
-      {
-        name: "resenasDesdeElLanzamiento",
-        label: "¿Reseñas visibles desde el lanzamiento?",
-        type: "select",
-        required: true,
-        options: [
-          { value: "si", label: "Sí, desde el día 1" },
-          { value: "despues", label: "Las activo más adelante" },
-        ],
-      },
-      {
-        name: "mensajeria",
-        label: "¿Mensajería interna entre huésped y dueño dentro del sitio, o por WhatsApp?",
-        type: "select",
-        required: true,
-        options: [
-          { value: "interna", label: "Mensajería interna en el sitio" },
-          { value: "whatsapp", label: "Prefiero que se resuelva por WhatsApp" },
-        ],
-      },
-      {
-        name: "soporte",
-        label: "¿Quién atiende consultas de huéspedes y dueños al principio?",
-        type: "select",
-        required: true,
-        options: [
-          { value: "yo-atiendo", label: "Yo atiendo las consultas" },
-          { value: "necesito-canal", label: "Necesito que armen un canal de soporte" },
-        ],
-      },
-      {
-        name: "observacionesTecnicas",
-        label: "¿Algo más que debamos saber antes de empezar a construir?",
-        type: "textarea",
-        required: false,
       },
     ],
   },

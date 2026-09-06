@@ -10,7 +10,7 @@ export default function FormularioWeb() {
           </div>
           <h1 className="text-4xl font-bold text-slate-900 mb-2">Antes de Construir tu Web</h1>
           <p className="text-lg text-slate-600">
-            Definiciones de negocio y técnicas para armar la plataforma en RentalHive
+            Definiciones de negocio y técnicas para armar la plataforma
           </p>
         </div>
       </div>

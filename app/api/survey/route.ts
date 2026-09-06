@@ -14,16 +14,12 @@ export async function POST(request: NextRequest) {
 
     // Guardar en Supabase
     let dbResult = null;
-    if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
-      try {
-        dbResult = await saveSurveyToDatabase(validatedData);
-        console.log("Saved to Supabase successfully");
-      } catch (dbError) {
-        console.error("Database error:", dbError);
-        // No throw - continuamos incluso si la BD falla
-      }
-    } else {
-      console.log("Supabase not configured - skipping database save");
+    try {
+      dbResult = await saveSurveyToDatabase(validatedData);
+      console.log("Saved to Supabase successfully");
+    } catch (dbError) {
+      console.error("Database error:", dbError);
+      // No throw - continuamos incluso si la BD falla
     }
 
     // Enviar email a Fernando

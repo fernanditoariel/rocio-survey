@@ -1,18 +1,5 @@
 {
-  "projectName": "rocio-discovery-survey",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
-  "env": [
-    "NEXT_PUBLIC_SUPABASE_URL",
-    "SUPABASE_SERVICE_ROLE_KEY",
-    "RESEND_API_KEY",
-    "SURVEY_EMAIL_TO"
-  ],
-  "envDescription": {
-    "NEXT_PUBLIC_SUPABASE_URL": "Tu Supabase project URL",
-    "SUPABASE_SERVICE_ROLE_KEY": "Tu Supabase service role key",
-    "RESEND_API_KEY": "Tu Resend API key para emails",
-    "SURVEY_EMAIL_TO": "Email donde recibirás las respuestas (fernando@agenciawebhispana.com)"
-  },
   "framework": "nextjs"
 }

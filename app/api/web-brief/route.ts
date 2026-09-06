@@ -10,15 +10,11 @@ export async function POST(request: NextRequest) {
 
     console.log("Web brief received:", validatedData);
 
-    if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
-      try {
-        await saveWebBriefToDatabase(validatedData);
-        console.log("Saved web brief to Supabase successfully");
-      } catch (dbError) {
-        console.error("Database error (non-fatal):", dbError);
-      }
-    } else {
-      console.log("Supabase not configured - skipping database save");
+    try {
+      await saveWebBriefToDatabase(validatedData);
+      console.log("Saved web brief to Supabase successfully");
+    } catch (dbError) {
+      console.error("Database error (non-fatal):", dbError);
     }
 
     if (process.env.RESEND_API_KEY) {
