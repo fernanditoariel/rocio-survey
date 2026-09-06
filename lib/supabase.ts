@@ -7,9 +7,14 @@ if (!supabaseUrl || !supabaseKey) {
   console.error("Missing Supabase credentials");
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey);
+export const supabase = supabaseKey
+  ? createClient(supabaseUrl, supabaseKey)
+    : (null as unknown as ReturnType<typeof createClient>);
 
 export async function saveSurveyToDatabase(data: any) {
+  if (!supabase) {
+    throw new Error("Supabase no configurado (falta SUPABASE_SERVICE_ROLE_KEY)");
+  }
   const { data: result, error } = await supabase
     .from("surveys")
     .insert([
@@ -46,6 +51,9 @@ export async function saveSurveyToDatabase(data: any) {
 }
 
 export async function saveWebBriefToDatabase(data: any) {
+  if (!supabase) {
+    throw new Error("Supabase no configurado (falta SUPABASE_SERVICE_ROLE_KEY)");
+  }
   const { data: result, error } = await supabase.from("web_briefs").insert([
     {
       reclutamiento: data.reclutamiento,
@@ -79,6 +87,9 @@ export async function saveWebBriefToDatabase(data: any) {
 }
 
 export async function saveEncuestaCompletaToDatabase(data: any) {
+  if (!supabase) {
+    throw new Error("Supabase no configurado (falta SUPABASE_SERVICE_ROLE_KEY)");
+  }
   const { data: result, error } = await supabase.from("encuestas_completas").insert([
     {
       // Datos básicos
